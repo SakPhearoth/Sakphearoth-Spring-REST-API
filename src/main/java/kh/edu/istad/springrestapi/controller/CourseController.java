@@ -1,5 +1,6 @@
 package kh.edu.istad.springrestapi.controller;
 
+import jakarta.validation.Valid;
 import kh.edu.istad.springrestapi.dto.CourseRequest;
 import kh.edu.istad.springrestapi.dto.CourseResponse;
 import kh.edu.istad.springrestapi.service.CourseService;
@@ -49,7 +50,7 @@ public class CourseController {
     // Create course
     @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
-    public CourseResponse createCourse(@RequestBody CourseRequest courseRequest) {
+    public CourseResponse createCourse(@Valid @RequestBody CourseRequest courseRequest) {
 
         return courseService.createCourse(courseRequest);
     }
